@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Sign up{% endblock title %}
+{% block content %}
+
+    <!--         REGISTRATION-->
+    <div class="registration">
+        <h1 class="registration_title">РЕЄСТРАЦІЯ</h1>
+
+        <form action="" method="POST" id="sign_up_form" class="registration_form">
+            {% csrf_token %}
+{#                             {% for field in form %}#}
+{#                                {{ field.label_tag }}<br>#}
+{#                                 {{ field.help_text }}<br>#}
+{#                                 {{ field }}<br>#}
+{#                                 {{ field.errors }}<br>#}
+{#                    {% endfor %}#}
+
+            <div class="sign_up_input_error">
+                <div id="errorName" class="sign_up_form_error">Має містити лише літери</div>
+                <input type="text" class="registration_form_input" name="first_name" id="first_name" placeholder="Ім'я"
+                       autofocus required></div>
+            <div class="sign_up_input_error">
+                <div id="errorLastName" class="sign_up_form_error">Має містити лише літери</div>
+                <input type="text" class="registration_form_input" name="last_name" id="second_name"
+                       placeholder="Прізвище" required></div>
+            <div class="sign_up_input_error">
+                <div id="errorFathersName" class="sign_up_form_error">Має містити лише літери</div>
+                <input type="text" class="registration_form_input" name="fathers_name" id="fathers_name"
+                       placeholder="По батькові" required></div>
+            <div class="sign_up_input_error">
+                <div id="errorPhone" class="sign_up_form_error">У форматі 380 (93) 123 45 67</div>
+                <input type="text" class="registration_form_input" name="phone_number" id="phone"
+                       placeholder="номер телефону 380 (93) 123 45 67" required></div>
+            <div class="sign_up_input_error">
+                <div id="errorEmail" class="sign_up_form_error">Введіть ел. адресу коректно</div>
+                <input type="text" class="registration_form_input" name="email" id="email" placeholder="ел. пошта"
+                       required>
+            </div>
+            <div class="sign_up_input_error">
+                <div id="errorPassword" class="sign_up_form_error">Не менше 6 символів</div>
+                <input type="password" class="registration_form_input" name="password1" id="password"
+                       placeholder="пароль"
+                       required></div>
+            <div class="sign_up_input_error">
+                <div id="errorPasswordConfirm" class="sign_up_form_error">Паролі не співпадають</div>
+                <input type="password" class="registration_form_input" name="password2" id="password2"
+                       placeholder="повторіть пароль" required></div>
+            <input type="submit" value="ЗАРЕЄСТРУВАТИСЯ" class="sign_in_form_button" id="sign_up_button">
+            {#                 {% if validation_error != 'ok' %}#}
+            {#                    <div class="sign_up_valid_error">{{ validation_error }}</div>#}
+            {#                 {% endif %}#}
+        </form>
+        {#         ПРАВКИ!!!#}
+    </div>
+
+    <script type="text/javascript" src="{% static 'js/sign_up.js' %}"></script>
+{% endblock %}
